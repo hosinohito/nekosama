@@ -1,0 +1,6 @@
+npm-debug.log
+.*.swp
+node_modules/
+log/
+js/
+data/

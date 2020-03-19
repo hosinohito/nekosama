@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "outDir": "../front/js",
+        "rootDir": ".",
+	"target": "es5",
+	"lib": [
+            "dom",
+            "es5",
+            "scripthost",
+            "es2015.promise",  //←ポイント
+	"es2016","dom"
+        ]
+    }
+}

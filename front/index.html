@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content="パスワード不要で、どこからでもアクセス、共有ができるメモ帳です。
+    記入されたメモは自動で保存され、いつでも閲覧できます。お好きな名前のメモを、お気軽に作成してみてください。">
+    <meta name="keywords" content="ﾈｺ様,メモ帳,共有,パスワード不要,ﾈｺ様のメモ帳,にゃー">
+    <title>ﾈｺ様のメモ帳</title>
+    <style type="text/css">
+    input:invalid {
+      border: 1px solid red;
+    }
+
+    input:valid {
+      border: 1px solid;
+    }
+    </style>
+    <script>
+    window.onload=function(){
+      document.getElementById("memoName").focus();
+      document.addEventListener("keydown" , function(e){
+        if(e.key === "Enter"){
+          window.location.href = "/cgi-bin/neko.cgi?" + document.getElementById("memoName").value;
+        }
+      });
+      if(document.getElementById("memoName").value != ""){
+      document.getElementById("memoLink").setAttribute("href", "/cgi-bin/neko.cgi?" + document.getElementById("memoName").value);
+      }else{
+      document.getElementById("memoLink").removeAttribute("href");
+      }
+      document.getElementById("memoName").addEventListener("input",
+        function(){
+      if(document.getElementById("memoName").value != ""){
+      document.getElementById("memoLink").setAttribute("href", "/cgi-bin/neko.cgi?" + document.getElementById("memoName").value);
+      }else{
+      document.getElementById("memoLink").removeAttribute("href");
+      }
+          console.log(document.getElementById("memoLink"));
+          console.log(document.getElementById("memoName"));
+        },
+      false);
+    }
+    </script>
+  </head>
+  <body>
+    <p><input id="memoName" placeholder="" pattern="[0-9a-zA-Z]{1,255}$" autoforcus /><a id="memoLink">を開くにゃ。</a>
+    </p>
+    <p>おしらせ：im coding from bed</p>
+  </body>
+</html>
